@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <h5 class="p-mt-0" align="Center">INICIO AL SISTEMA</h5>
+    </h:head>
+<script type="text/javascript">
+    //<![CDATA[
+    function start() {
+        PF('startButton1').disable();
+
+        window['progress'] = setInterval(function () {
+            var pbClient = PF('pbClient'),
+                oldValue = pbClient.getValue(),
+                newValue = oldValue + 10;
+
+            pbClient.setValue(pbClient.getValue() + 10);
+
+            if (newValue === 10000) {
+                clearInterval(window['progress']);
+            }
+
+
+        }, 1000);
+    }
+
+    function cancel() {
+        clearInterval(window['progress']);
+        PF('pbClient').setValue(0);
+        PF('startButton1').enable();
+    }
+
+    //]]>
+</script>
+
+<div class="card" align='Center'>
+    <h:form>
+        <p:growl id="growl"/>
+
+        <div class="card" align="Center">
+    <h:form id="form">
+        <p:outputPanel id="panel" styleClass="p-mb-2">
+            <h:panelGrid columns="3" cellpadding="7">
+                <p:outputLabel for="text1" value="USUARIO"/>
+                <p:inputText id="text1" value="#{registr.usuario}" required="true" label="USUARIO">
+                    <f:validateLength minimum="2"/>
+                </p:inputText>
+                <p:message for="text1"/>
+
+                <p:outputLabel for="text2" value="CONTRASEÑA"/>
+                
+                <p:inputText id="text2" type="password" value="#{registr.contrase}" required="true" label="Surname"/>
+                <p:message for="text2"/>
+            </h:panelGrid>
+        </p:outputPanel>
+
+    </h:form>
+</div>
+                <h5>  
+                    
+                    
+                    </h5>
+        <form>
+            <p:commandButton  value="INICIAR SESION" action="registro" />  
+
+        </form>
+   
+        <h5>  
+                    </h5>
+        <p:progressBar id="progressBarClient" widgetVar="pbClient" style="width:300px" styleClass="p-mt-3"/>
+        <p:separator>  </p:separator>
+       
+    </h:form>
+</div>
+    <h:body>
+        
+    </h:body>
+</html>

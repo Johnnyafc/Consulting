@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <h5 class="p-mt-0" align="Center">FORMULARIO DE REGISTRO PARA CERTIFICADO</h5>
+    </h:head>
+
+    <h:body>
+<div class="card">
+    <style>
+        /* reset on the showcase style*/
+        body .ui-panelgrid .ui-panelgrid-cell {
+            background-color: transparent;
+        }
+
+        /* example use of styles for your form */
+        .my-heading-row {
+            background-color: var(--surface-c);
+            font-weight: bold;
+        }
+    </style>
+
+    <p:panelGrid columns="4"
+                 columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+                 layout="grid"
+                 styleClass="ui-panelgrid-blank ui-fluid"
+                 style="border:0px none; background-color:transparent;">
+
+        <p:row styleClass="my-heading-row">
+            DATOS PERSONALES
+        </p:row>
+
+        <p:outputLabel for="@next" value="NOMBRES COMPLETOS"/>
+        <p:inputText/>
+
+
+        <p:outputLabel for="@next" value="CEDULA"/>
+        <p:inputText/>
+
+        <p:outputLabel for="@next" value="CORREO"/>
+        <p:inputText/>
+
+        <p:outputLabel for="@next" value="NUMERO CELULAR"/>
+        <p:inputText/>
+
+        <p:outputLabel for="@next" value="PROFESION"/>
+        <p:inputTextarea rows="3"/>
+
+        <p:row id="my-row-id" styleClass="my-heading-row" style="font-weight: bold">
+            PAGO DE CERTIFICADO
+        </p:row>
+
+        <p:outputLabel for="@next" value="NOMBRE DEL DEPOSITANTE"/>
+        <p:inputText/>
+
+        <p:outputLabel for="@next" value="PRECIO" />
+        <p:inputText/>
+
+
+        <p:outputLabel for="idReg" value="CODIGO DEL DEPOSITO"/>
+        <p:column style="background-color: lightcoral">
+            <p:inputText id="idReg"/>
+        </p:column>
+
+        <p:row>
+            <p:column styleClass="ui-grid-col-12">
+                <p>Recuerda que si no ingresas el codigo de tu deposito
+                    <u>no podemos validar el pago de tu certificado</u> y por tanto toda la transacción se anulará.</p>
+                <p>Ademas recuerde que tiene que ingresar la informacion del nombre de la 
+                persona que hizo el deposito</p>
+            </p:column>
+        </p:row>
+
+        <p:row>
+            <p:column styleClass="ui-grid-col-12">
+                <p:commandButton value="Confirmar" styleClass="p-mr-2" style="width: auto"/>
+            </p:column>
+        </p:row>
+    </p:panelGrid>
+</div>
+    </h:body>
+</html>
+
